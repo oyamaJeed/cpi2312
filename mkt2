@@ -1,0 +1,13 @@
+TARGET := test2
+SRC := $(TARGET).c
+OBJ := $(TARGET).o
+
+all : $(TARGET)
+
+
+$(TARGET): test2.c
+	gcc -c test2.c
+	gcc -o test2 test2.c -L. libdlink.so
+clean:
+	rm -f test2 test2.o
+
