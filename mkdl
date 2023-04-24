@@ -1,0 +1,13 @@
+TARGET := display
+SRC := $(TARGET).c
+OBJ := $(TARGET).o
+
+all : $(TARGET)
+
+
+$(TARGET): $(OBJ)
+	gcc -c display.c
+	gcc -shared display.c -fPIC -o libdlink.so
+clean:
+	rm -f display.o libdlink.so
+
