@@ -9,11 +9,11 @@
 
 int main(int argv, char *argc[])
 {
-	ST_SMPL	st_val[] = {
+	ST_EXER	st_val[] = {
 			{'1','2',"Good morning!"},
 			{'3','4',"Good afternoon!"}
 	};
-	ST_SMPL *st_val_p[] = {&st_val[0],&st_val[1]};
+	ST_EXER *st_val_p[] = {&st_val[0],&st_val[1]};
 
 	printf("*** Before ****\n");
 	printf("struct[0] from = %c\n",st_val_p[0]->from);
