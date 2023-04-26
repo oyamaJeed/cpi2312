@@ -24,27 +24,5 @@ int main(int argv, char *argc[])
 	printf("uni st to = %c\n",uni_exer.exer.to);
 	printf("uni st msg = %s\n",uni_exer.exer.msg);
 
-
-
-
-	/*
-	printf("union long=%ld\n", uni_val.l_mnb);
-	for(int i=0; i<4; i++)	{
-		printf("union sary c_ary=0x%02x\n", uni_val.sary.c_ary[i]);
-	}
-
-	for(int j=0; j<4; j++)	{
-		uni_val_p->sary.c_ary[j] = 0x50 + j;
-	}
-
-	printf("*** After ****\n");
-
-	printf("union long=%ld\n", uni_val_p->l_mnb);
-	for(int i=0; i<4; i++)	{
-		printf("union sary c_ary=0x%02x\n", uni_val_p->sary.c_ary[i]);
-	}
-
-	printf("COM_VALUE=%d\n", COM_VALUE);
-	*/
 	return 0;
 }
