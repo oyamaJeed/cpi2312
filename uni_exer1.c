@@ -19,7 +19,7 @@ int main(int argv, char *argc[])
 	uni_val_p->exer.to = 'F';
 	strcpy(uni_val_p->exer.msg,"This is an apple!");
 
-	printf("\n*** Init ****\n");
+	printf("\n*** Modify ****\n");
 	printf("uni st form = %c\n",uni_exer.exer.from);
 	printf("uni st to = %c\n",uni_exer.exer.to);
 	printf("uni st msg = %s\n",uni_exer.exer.msg);
