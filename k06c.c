@@ -29,9 +29,10 @@ int main(int argc, char *argv[])
 	if(argc==4){
 		port = atoi(argv[3]);
 	}
-
-	if(sizeof(argv[2]) > 32){
+	int strsize = strlen(argv[2]);
+	if(strsize >= BUFSIZE){
 		excep("EchoWord Buffer size is 32");
+		exit(1);
 	}
 
 	if ((ServerSessionID=socket(AF_INET,SOCK_STREAM,0))==-1){
