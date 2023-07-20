@@ -32,7 +32,7 @@ void clHandler(int clSock)
 	struct httpReqHeader head = {NULL,NULL};
 	struct httpReqLine line = {NULL,NULL,NULL};
 	
-	
+	pr_msg("","");	
 	dataSize = recvOneLine(clSock,buf);
 	line.method = strtok_re(buf," \t\r\n",&nextPtr);
 	pr_msg("METHOD:",line.method);
@@ -41,42 +41,19 @@ void clHandler(int clSock)
 	line.httpVer = strtok_re(NULL," \t\r\n",&nextPtr);
 	pr_msg("HTTP_VER:",line.httpVer);
 	
-	dataSize = recvOneLine(clSock,buf);
-	pr_msg("HEAD No.","0");
-	head.name = strtok_re(buf," \t\r\n",&nextPtr);
-	pr_msg("HEAD.NAME:",head.name);
-	head.val = strtok_re(NULL," \t\r\n",&nextPtr);
-	pr_msg("HEAD.VAR:",head.val);
-
-	for(int i=1;i<HEADERS_MAX;i++){
+	pr_msg("","");	
+	
+	for(int i=0;i<HEADERS_MAX;i++){
 		dataSize = recvOneLine(clSock,buf);
-		sprintf(str,"%d",i);
+		numToStr((long int)i, str, 3);
+		head.name = strtok_re(buf," \t\r\n",&nextPtr);
 		pr_msg("HEAD No.",str);
 		head.name = strtok_re(buf," \t\r\n",&nextPtr);
 		pr_msg("HEAD.NAME:",head.name);
 		head.val = strtok_re(NULL," \t\r\n",&nextPtr);
 		pr_msg("HEAD.VAR:",head.val);
+		pr_msg("","");
 	}
-	
-
-		//pr_msg("recv():",buf);
-	//numToStr(dataSize,str,5);
-	//pr_msg("<size>:",str);
-	
-	//head.flag = atoi(strtok_re(buf," \t\r\n",&nextPtr));
-	//pr_msg("No.",(char *)&head.flag);
-	/*
-	head.name = strtok_re(buf," \t\r\n",&nextPtr);
-	pr_msg("HEAD.NAME:",head.name);
-	head.val = strtok_re(NULL," \t\r\n",&nextPtr);
-	pr_msg("HEAD.VAR:",head.val);
-	*/
-	
-
-	
-	/*
-
-	*/
 	
 	/* CLOSE SOCKET */
 	if (shutdown(clSock, 2) == -1) {

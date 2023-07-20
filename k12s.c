@@ -25,6 +25,10 @@ int main(int argc,char *argv[]){
 	for(;;){
 		clntSock = acceptTCPConn(servSock);
 		
+		char threadIDStr[16];
+		numToStr((long int)threadID,threadIDStr,15);
+		pr_msg("THREAD ID:",threadIDStr);
+		
 		if((threadArgs = (struct ThreadArgs *)malloc(sizeof(struct ThreadArgs))) == NULL){
 			excep("malloc() failed");
 		}
@@ -32,11 +36,6 @@ int main(int argc,char *argv[]){
 		if(pthread_create(&threadID,NULL,threadMain,(void *)threadArgs) != 0){
 			excep("pthread_create() failed");
 		}
-		/*
-		char threadIDStr[16];
-		numToStr((long int)threadID,threadIDStr,15);
-		pr_msg("THREAD ID:",threadIDStr);
-		*/
 	
 	}
 	
